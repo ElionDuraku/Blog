@@ -7,12 +7,16 @@ use PDO;
 use PDOException;
 
 class User extends Database{
-    private $userid;
-    private $firstname;
-    private $lastname;
-    private $phone;
-    private $email;
-    private $password;
+    protected $userid;
+    protected $firstname;
+    protected $lastname;
+    protected $phone;
+    protected $email;
+    protected $password;
+
+    protected static $db_table = "users";
+    protected static $db_tables_fields = array('firstname', 'lastname', 'phone', 'email', 'password');
+    
 
 
     public function getUserid(){
@@ -89,23 +93,23 @@ class User extends Database{
         return $stmt->fetch();
     }
 
-    public function create_user(){
-        try{        
-            $sql="INSERT INTO users(firstname,lastname,phone,email,password) VALUES ";
-            $sql.="(:firstname,:lastname,:phone,:email,:password)";
-            $stmt=$this->prepare($sql);
-            $stmt->bindParam(':firstname',$this->firstname);
-            $stmt->bindParam(':lastname',$this->lastname);
-            $stmt->bindParam(':phone',$this->phone);
-            $stmt->bindParam(':email',$this->email);
-            $stmt->bindParam(':password',$this->password);
-            $stmt->execute();
-            echo "User added successfully";
-        }
-        catch(PDOException $e){
-            echo "Error in user registration process " . $e->getMessage();
-        }
-    }
+    // public function create_user(){
+    //     try{        
+    //         $sql="INSERT INTO users(firstname,lastname,phone,email,password) VALUES ";
+    //         $sql.="(:firstname,:lastname,:phone,:email,:password)";
+    //         $stmt=$this->prepare($sql);
+    //         $stmt->bindParam(':firstname',$this->firstname);
+    //         $stmt->bindParam(':lastname',$this->lastname);
+    //         $stmt->bindParam(':phone',$this->phone);
+    //         $stmt->bindParam(':email',$this->email);
+    //         $stmt->bindParam(':password',$this->password);
+    //         $stmt->execute();
+    //         echo "User added successfully";
+    //     }
+    //     catch(PDOException $e){
+    //         echo "Error in user registration process " . $e->getMessage();
+    //     }
+    // }
 
 
     public function update_user(){

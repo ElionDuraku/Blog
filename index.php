@@ -1,3 +1,4 @@
+<?php require_once "\Admin\Autoloader.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,11 +134,14 @@
 				<article class="categories ml-1">
 					<h4>Categories</h4>
 					<div class="list-group list-unstyled mb-3">
-						<a class="list-group-item list-group-item-light" href="#">Category One</a></li>
-						<a class="list-group-item list-group-item-light" href="#">Category Two</a></li>
-						<a class="list-group-item list-group-item-light" href="#">Category Three</a></li>
-						<a class="list-group-item list-group-item-light" href="#">Category Four</a></li>
-						<a class="list-group-item list-group-item-light" href="#">Category Five</a></li>						
+						<?php
+							$category = new \Admin\Lib\Category();
+							$categories = $category->find_all();
+
+							foreach ($categories as $c) {
+								echo "<a class='list-group-item list-group-item-light' href='#'>{$c->getName()}</a></li>";
+							}
+						?>				
 					</div>
 				</div>
 				<div class="samesidebar clear">

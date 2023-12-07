@@ -18,7 +18,7 @@ include "inc/adminnav.php";
                     $user=$user->find_user_id($_GET['userid']);
                 }    
                 if(isset($_POST['delete_user'])){
-                    $user->delete_user();
+                    $user->delete();
                 }
             ?>
             <div class="col-lg-9">

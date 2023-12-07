@@ -20,7 +20,7 @@ include "inc/adminnav.php";
                     $user->setPhone($_POST['phone']);
                     $user->setEmail($_POST['email']);
                     $user->setPassword($_POST['password']);
-                    $user->create_user();
+                    $user->create();
                 }
 
                 

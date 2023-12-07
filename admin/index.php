@@ -16,7 +16,7 @@
                         use Admin\Lib\User;
 
                         $user = new User();
-                        $result_set = $user->find_all_users();
+                        $result_set = $user->find_all();
 
 
                         foreach ($result_set as $anetar) {
@@ -38,18 +38,18 @@
                         // $user->create_user();
 
                         //Modifikimi i shenimeve per User
-                        // $user=$user->find_user_id(3);
+                        // $user=$user->find_id(3);
                         // $user->setPhone("045888999");
                         // $user->update_user();
 
                         //Fshirja e shenimeve per User
-                        // $user=$user->find_user_id(3);
+                        // $user=$user->find_id(3);
                         // $user->delete_user();
                         ?>
                 </table>
 
                 <?php
-                // $user_result = $user->find_user_id(1);
+                // $user_result = $user->find_id(1);
                 // echo $user_result->firstname;
 
                 ?>
